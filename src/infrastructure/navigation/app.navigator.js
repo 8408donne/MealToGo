@@ -11,11 +11,11 @@ import { MapScreen } from "../../features/map/screens/map.screen";
 
 const Tab = createBottomTabNavigator();
 
-const TAB_ICON = {
-  Restaurants: "md-restaurant",
-  Map: "md-map",
-  Settings: "md-settings",
-};
+// const TAB_ICON = {
+//   Restaurants: "restaurant",
+//   Map: "map",
+//   Settings: "settings",
+//};
 
 const Settings = () => (
   <SafeArea>
@@ -23,27 +23,38 @@ const Settings = () => (
   </SafeArea>
 );
 
-const createScreenOptions = ({ route }) => {
-  const iconName = TAB_ICON[route.name];
-  return {
-    tabBarIcon: ({ size, color }) => (
-      <Ionicons name={iconName} size={size} color={color} />
-    ),
-  };
-};
+//const createScreenOptions = ({ route }) => {
+  //const iconName = TAB_ICON[route.name];
+  //return {
+    //tabBarIcon: ({ size, color }) => (
+      //<Ionicons name={iconName} size={size} color={color} />
+    //),
+  //};
+//};
 
 export const AppNavigator = () => (
   <NavigationContainer>
     <Tab.Navigator
-      screenOptions={createScreenOptions}
-      tabBarOptions={{
-        activeTintColor: "tomato",
-        inactiveTintColor: "gray",
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "tomato",
+        tabBarInactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="Restaurants" component={RestaurantsNavigator} 
+        options={{
+        tabBarIcon: ({ color, size }) => ( 
+        <Ionicons name="restaurant" size={size} color={color} />)}}/>
+      
+      <Tab.Screen name="Map" component={MapScreen}
+      options={{
+        tabBarIcon: ({ color, size }) => ( 
+        <Ionicons name="map" size={size} color={color} />)}}/>
+      
+      <Tab.Screen name="Settings" component={Settings}
+      options={{
+        tabBarIcon: ({ color, size }) => ( 
+        <Ionicons name="settings" size={size} color={color} />)}}/>
     </Tab.Navigator>
   </NavigationContainer>
 );
