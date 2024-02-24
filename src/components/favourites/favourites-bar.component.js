@@ -7,6 +7,8 @@ import { Text } from "../typography/text.component";
 
 const FavouritesWrapper = styled.View`
   padding: 10px;
+  z-index: 999;
+  border-radius: 10px;
 `;
 export const FavouritesBar = ({ favourites, onNavigate }) => {
   if (!favourites.length) {
@@ -14,7 +16,7 @@ export const FavouritesBar = ({ favourites, onNavigate }) => {
   }
   return (
     <FavouritesWrapper>
-      <Spacer variant="left.large">
+      <Spacer variant="left.small">
         <Text variant="caption">Favourites</Text>
       </Spacer>
 
