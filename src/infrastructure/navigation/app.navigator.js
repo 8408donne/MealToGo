@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
@@ -33,7 +32,6 @@ const Settings = () => (
 //};
 
 export const AppNavigator = () => (
-  <NavigationContainer>
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
@@ -56,5 +54,4 @@ export const AppNavigator = () => (
         tabBarIcon: ({ color, size }) => ( 
         <Ionicons name="settings" size={size} color={color} />)}}/>
     </Tab.Navigator>
-  </NavigationContainer>
 );
